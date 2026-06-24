@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FlavorForge - A premium recipe sharing platform to discover, forge, and share your favorite food and drink masterpieces.">
+  <title>FlavorForge | Share Culinary Masterpieces</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation -->
+  <header class="navbar" id="navbar">
+    <a href="#explore" class="nav-logo">
+      <span>🔥</span>FlavorForge
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#explore" class="nav-link active" id="link-explore">Explore</a></li>
+        <li><a href="#categories" class="nav-link" id="link-categories">Categories</a></li>
+        <li><a href="#chefs" class="nav-link" id="link-chefs">Top Chefs</a></li>
+      </ul>
+    </nav>
+    
+    <div class="nav-auth" id="nav-auth-container">
+      <!-- Dynamic authentication controls will render here -->
+      <button class="btn btn-secondary btn-sm" id="btn-login-open">Log In</button>
+      <button class="btn btn-primary btn-sm" id="btn-signup-open">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Hero Section (Visible primarily on Explore/Home view) -->
+  <section class="hero" id="hero-section">
+    <div class="floating-emoji">🍕</div>
+    <div class="floating-emoji">🍹</div>
+    <div class="floating-emoji">🥐</div>
+    <div class="floating-emoji">🧁</div>
+    <div class="floating-emoji">🥑</div>
+    <div class="floating-emoji">🥩</div>
+    
+    <div class="hero-content">
+      <span class="eyebrow">Welcome to FlavorForge</span>
+      <h1>Forge Exquisite Flavors. Share Culinary Masterpieces.</h1>
+      <p>Join a global community of passionate chefs and food enthusiasts. Discover curated recipes, follow top culinary creators, and share your own secret dishes.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="#explore" class="btn btn-primary">Discover Recipes</a>
+        <a href="#create-recipe" class="btn btn-secondary" style="background-color: transparent; color: white; border-color: white;">Post a Recipe</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Content Container -->
+  <main id="main-content">
+    <!-- Content injected dynamically via app.js -->
+    <div class="loader"></div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#explore" class="footer-logo">🔥 FlavorForge</a>
+        <p class="footer-tagline">Empowering home cooks and professional chefs to document, refine, and showcase their absolute best recipes.</p>
+      </div>
+      <div>
+        <h4 class="footer-sec-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#explore">Global Feed</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#chefs">Top Chefs</a></li>
+          <li><a href="#create-recipe">Post a Recipe</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-sec-title">Platform</h4>
+        <ul class="footer-links">
+          <li><a href="#" id="footer-btn-login">Sign In</a></li>
+          <li><a href="#" id="footer-btn-signup">Create Account</a></li>
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 FlavorForge Platform. Created with passion for exquisite taste. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ================= AUTH MODALS ================= -->
+
+  <!-- Log In Modal -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Welcome Back</h3>
+        <button class="modal-close-btn" id="login-close">&times;</button>
+      </div>
+      <form id="login-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="chef@flavorforge.com" required>
+          </div>
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label style="margin-bottom: 0;">Password</label>
+              <a href="#" id="btn-forgot-password-trigger" style="font-size: 0.8rem; color: var(--primary); text-decoration: none; font-weight: 500;">Forgot password?</a>
+            </div>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Log In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div class="modal-overlay" id="signup-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Join FlavorForge</h3>
+        <button class="modal-close-btn" id="signup-close">&times;</button>
+      </div>
+      <form id="signup-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="signup-name">Display Name</label>
+            <input type="text" id="signup-name" class="form-control" placeholder="Isabella Rossi" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email Address</label>
+            <input type="email" id="signup-email" class="form-control" placeholder="chef@flavorforge.com" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" class="form-control" placeholder="••••••••" required>
+          </div>
+          <div class="form-group">
+            <label>Choose Your Chef Avatar</label>
+            <div class="avatar-picker-grid" id="signup-avatar-grid">
+              <!-- Dynamically populated in app.js -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Create Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" id="forgot-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Reset Password</h3>
+        <button class="modal-close-btn" id="forgot-close">&times;</button>
+      </div>
+      <form id="forgot-form">
+        <div class="modal-body">
+          <p style="font-size: 0.9rem; color: var(--gray-text); margin-bottom: 1.5rem;">Enter your email address and we will locate your credentials and send a password recovery simulation link.</p>
+          <div class="form-group">
+            <label for="forgot-email">Email Address</label>
+            <input type="email" id="forgot-email" class="form-control" placeholder="chef@flavorforge.com" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Retrieve Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal-overlay" id="edit-profile-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Profile</h3>
+        <button class="modal-close-btn" id="edit-profile-close">&times;</button>
+      </div>
+      <form id="edit-profile-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="edit-profile-name">Name</label>
+            <input type="text" id="edit-profile-name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-profile-location">Location</label>
+            <input type="text" id="edit-profile-location" class="form-control" placeholder="e.g. Rome, Italy">
+          </div>
+          <div class="form-group">
+            <label for="edit-profile-bio">Bio</label>
+            <textarea id="edit-profile-bio" class="form-control" placeholder="Tell us about your culinary journey..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Chef Avatar</label>
+            <div class="avatar-picker-grid" id="edit-profile-avatar-grid">
+              <!-- Dynamically populated in app.js -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Hub -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Dynamic Views Templates (Templates used inside app.js for rendering pages) -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
